@@ -35,20 +35,34 @@ const openRegisterModal = () => {
       <NavigationBar />
 
       <div class="background-img"></div>
-      <div style="display: flex; flex-direction: row; align-items: flex-end">
-        <h1 style="font-weight: 600">Construct</h1>
-        <h2 style="color: blue">.ICO</h2>
-      </div>
-      <div style="margin-top: 10px; flex-direction: row; gap: 10px">
-        <button class="button_1" @click="openLoginModal">Iniciar sesión</button>
-        <button class="button_1" @click="openRegisterModal">Registrarse</button>
+      <div class="wrapper">
+        <img
+          class="main-logo"
+          src="../../assets/logo_text.png"
+          alt="Construct.ICO"
+        />
+        <div class="button-container">
+          <div
+            style="display: flex; flex-direction: row; align-items: flex-end"
+          >
+            <h1 style="font-weight: 600">Un gran paso para una constructora</h1>
+          </div>
+          <div style="margin-top: 10px; flex-direction: row; gap: 10px">
+            <button class="button_1" @click="openLoginModal">
+              Iniciar sesión
+            </button>
+            <button class="button_1" @click="openRegisterModal">
+              Registrarse
+            </button>
+          </div>
+        </div>
       </div>
     </PageContainer>
-    <PageContainer>
+    <!-- <PageContainer>
       <h2>¿Qué es Construct.ICO?</h2>
 
       <SlideShow />
-    </PageContainer>
+    </PageContainer> -->
     <Footer />
   </div>
   <LoginModal
@@ -77,7 +91,7 @@ const openRegisterModal = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/background_1.jpg");
+  background-image: url("../../assets/background_2.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -85,7 +99,23 @@ const openRegisterModal = () => {
   opacity: 0.5;
 }
 
-.page-container {
-  flex: 1;
+.wrapper {
+  flex-direction: row;
+  align-items: center;
+  justify-self: center;
+}
+
+.main-logo {
+  width: 700px;
+  height: 700px;
+  margin: 0 auto;
+  display: block;
+}
+
+.button-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 10px;
 }
 </style>

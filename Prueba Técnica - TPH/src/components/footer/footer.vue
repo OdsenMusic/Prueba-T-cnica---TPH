@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   padding: 1em;
-  background-color: #646cff;
+  background-color: var(--accent-color);
   color: white;
   height: 100px;
 }

@@ -137,6 +137,16 @@ table {
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  --primary-color: #242424;
+  --secondary-color: #ffffff;
+  --accent-color: #0d9762;
+  --disabled-color: rgb(154, 154, 154);
+  --focus-border-color: red;
+  --hover-background-color: white;
+  --hover-text-color: black;
+  --hover-border-color: black;
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -174,7 +184,7 @@ input {
 }
 
 input:focus {
-  border-color: red;
+  border-color: var(--accent-color);
 }
 
 label {
@@ -197,7 +207,7 @@ label {
   font-weight: 400;
   line-height: 1.5;
   color: inherit;
-  background-color: darkblue;
+  background-color: var(--accent-color);
   padding: 5px 20px;
   border: 0;
   border-radius: 0;
@@ -210,7 +220,32 @@ label {
   border: 1px solid transparent;
 }
 
-button:hover {
+.button_disabled {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+  background-color: rgb(154, 154, 154);
+  padding: 5px 20px;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+  outline: none;
+  border-radius: 50px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.button_disabled:hover {
+  background-color: rgb(154, 154, 154);
+  color: black;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid transparent;
+}
+
+.button_1:hover {
   background-color: white;
   color: black;
   border: 1px solid black;

@@ -15,10 +15,34 @@ const emit = defineEmits(["closeModal"]);
     <div style="gap: 10px">
       <h2>Registro</h2>
       <div style="gap: 10px">
-        <input type="name" id="name" name="name" required />
-        <input type="email" id="email" name="email" required />
-        <input type="phone" id="phone" name="phone" required />
-        <input type="password" id="password" name="password" required />
+        <input
+          placeholder="Nombre"
+          type="name"
+          id="name"
+          name="name"
+          required
+        />
+        <input
+          placeholder="Email"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+        <input
+          placeholder="Teléfono"
+          type="phone"
+          id="phone"
+          name="phone"
+          required
+        />
+        <input
+          placeholder="Contraseña"
+          type="password"
+          id="password"
+          name="password"
+          required
+        />
         <button class="button_1">Registrarse</button>
       </div>
     </div>

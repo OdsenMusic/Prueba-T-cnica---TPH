@@ -1,19 +1,55 @@
 <script setup>
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits, onMounted, watch } from "vue";
+import CloseIcon from "vue-material-design-icons/Close.vue";
+import { animate } from "motion";
 
 const { isModalVisible, closeModal } = defineProps([
   "isModalVisible",
   "closeModal",
 ]);
+
+const onEnter = () => {
+  const animationDuration = 0.3;
+
+  animate(
+    ".modal-overlay",
+    { opacity: [0, 1] },
+    { duration: animationDuration }
+  );
+  animate(
+    ".modal-container",
+    { opacity: [0, 1], translateY: [30, 0] },
+    { duration: animationDuration }
+  );
+};
+
+const onLeave = () => {
+  const animationDuration = 0.3;
+
+  animate(
+    ".modal-overlay",
+    { opacity: [1, 0] },
+    { duration: animationDuration }
+  );
+  animate(
+    ".modal-container",
+    { opacity: [1, 0], translateY: [0, -30] },
+    { duration: animationDuration }
+  );
+};
 </script>
 
 <template>
-  <div v-if="isModalVisible" class="modal-overlay" @click="closeModal">
-    <div class="modal-container" @click.stop>
-      <button class="close-button" @click="closeModal">X</button>
-      <slot></slot>
+  <Transition :css="false" @enter="onEnter" @leave="onLeave">
+    <div v-if="isModalVisible" class="modal-overlay" @click="closeModal">
+      <div class="modal-container" @click.stop>
+        <button class="close-button" @click="closeModal">
+          <CloseIcon />
+        </button>
+        <slot></slot>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style scoped>
@@ -41,9 +77,17 @@ const { isModalVisible, closeModal } = defineProps([
   position: absolute;
   top: 10px;
   right: 10px;
+  border-radius: 100px;
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 </style>

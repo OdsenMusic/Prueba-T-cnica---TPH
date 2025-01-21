@@ -4,8 +4,7 @@ import { ref } from "vue";
 
 <template>
   <nav class="navigation-bar">
-    <!-- <img class="logo" src="../../assets/logo.png" alt="logo" /> -->
-    <h1>CONSTRUCT.ICO</h1>
+    <img class="logo" src="../../assets/logo.png" alt="logo" />
     <div class="navigation-bar-links">
       <a href="#">Home</a>
       <a href="#">About</a>
@@ -17,7 +16,7 @@ import { ref } from "vue";
 <style scoped>
 a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.4em;
   transition: 300ms;
   font-weight: 200;
@@ -25,9 +24,12 @@ a {
 }
 
 a:hover {
-  color: #646cff;
+  color: var(--accent-color);
   font-weight: 600;
-  border: 2px solid #646cff;
+}
+
+.logo {
+  height: 80%;
 }
 
 .navigation-bar {
@@ -36,7 +38,6 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  border: 1px solid red;
   top: 0;
   height: 100px;
   width: calc(100% - 40px);
