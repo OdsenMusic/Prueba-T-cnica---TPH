@@ -19,10 +19,8 @@ const emit = defineEmits(["closeModal"]);
         <input type="email" id="email" name="email" required />
         <input type="phone" id="phone" name="phone" required />
         <input type="password" id="password" name="password" required />
-        <button class="button_1" type="submit">Registrarse</button>
+        <button class="button_1">Registrarse</button>
       </div>
     </div>
   </ModalContainer>
 </template>
-
-<

@@ -10,6 +10,7 @@
     "dev-local": "vite --host"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "vue": "^3.5.13"
   },
   "devDependencies": {
