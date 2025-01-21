@@ -1,0 +1,52 @@
+<script setup>
+import { ref } from "vue";
+</script>
+
+<template>
+  <nav class="navigation-bar">
+    <!-- <img class="logo" src="../../assets/logo.png" alt="logo" /> -->
+    <h1>CONSTRUCT.ICO</h1>
+    <div class="navigation-bar-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+</template>
+
+<style scoped>
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.4em;
+  transition: 300ms;
+  font-weight: 200;
+  padding: 10px;
+}
+
+a:hover {
+  color: #646cff;
+  font-weight: 600;
+  border: 2px solid #646cff;
+}
+
+.navigation-bar {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid red;
+  top: 0;
+  height: 100px;
+  width: calc(100% - 40px);
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.navigation-bar-links {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+</style>
