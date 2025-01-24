@@ -1,14 +1,21 @@
 <script setup>
-import NavigationBar from "../../components/navigationBar/navigationBar.vue";
-import PageContainer from "../../components/pageContainer.vue";
-import Footer from "../../components/footer/footer.vue";
+import NavigationBar from "../../components/navigationBar.vue";
+import PageContainer from "../../components/uiComponents/pageContainer.vue";
+import Footer from "../../components/footer.vue";
 import BackgroundImage from "../../assets/background_1.jpg";
-import LoginModal from "./loginModal.vue";
-import RegisterModal from "./registerModal.vue";
+import LoginModal from "../../components/loginModal.vue";
+import RegisterModal from "../../components/registerModal.vue";
 import SlideShow from "../../components/slideShow.vue";
-import { ref } from "vue";
+import rightContainer from "./components/rightContainer.vue";
+import { onMounted, ref } from "vue";
+import RightContainer from "./components/rightContainer.vue";
+import FloatingContainerFlat from "../../components/uiComponents/floatingContainerFlat.vue";
+import LeftContainer from "./components/leftContainer.vue";
+import { useRoute } from "vue-router";
 
-const isLoginModalVisible = ref(true);
+const route = useRoute();
+
+const isLoginModalVisible = ref(false);
 
 const closeLoginModal = () => {
   isLoginModalVisible.value = false;
@@ -27,45 +34,57 @@ const closeRegisterModal = () => {
 const openRegisterModal = () => {
   isRegisterModalVisible.value = true;
 };
+
+onMounted(() => {
+  const params = route.query;
+  if (params.login === "true") {
+    openLoginModal();
+  }
+});
 </script>
 
 <template>
-  <div class="page-wrapper">
-    <PageContainer>
-      <NavigationBar />
+  <NavigationBar
+    :openLoginModal="openLoginModal"
+    :openRegisterModal="openRegisterModal"
+  />
 
-      <div class="background-img"></div>
-      <div class="wrapper">
-        <img
-          class="main-logo"
-          src="../../assets/logo_text.png"
-          alt="Construct.ICO"
-        />
-        <div class="button-container">
-          <div
-            style="display: flex; flex-direction: row; align-items: flex-end"
-          >
-            <h1 style="font-weight: 600">Un gran paso para una constructora</h1>
-          </div>
-          <div style="margin-top: 10px; flex-direction: row; gap: 10px">
-            <button class="button_1" @click="openLoginModal">
-              Iniciar sesión
-            </button>
-            <button class="button_1" @click="openRegisterModal">
-              Registrarse
-            </button>
-          </div>
+  <div class="page-wrapper">
+    <!-- HERO SECTION -->
+    <PageContainer id="inicio" style="justify-content: flex-end">
+      <div class="hero-layout">
+        <div style="" class="hero-left-layout">
+          <img
+            class="main-logo"
+            src="../../assets/logo_2_text.png"
+            alt="Construct.ICO"
+          />
+          <LeftContainer />
+        </div>
+        <div class="hero-right-layout">
+          <RightContainer />
         </div>
       </div>
+      <div class="background-img"></div>
     </PageContainer>
-    <!-- <PageContainer>
-      <h2>¿Qué es Construct.ICO?</h2>
-
+    <!-- TRANSITION SECTION -->
+    <div id="info" class="transition-container">
+      <h1>CALIDAD Y 20 AÑOS DE GARANTÍA</h1>
+    </div>
+    <!-- SLIDESHOW SECTION -->
+    <PageContainer id="trabajos">
       <SlideShow />
-    </PageContainer> -->
+    </PageContainer>
     <Footer />
   </div>
+
   <LoginModal
+    :openRegisterModal="
+      () => {
+        openRegisterModal();
+        closeLoginModal();
+      }
+    "
     :isModalVisible="isLoginModalVisible"
     :closeModal="closeLoginModal"
   />
@@ -75,14 +94,51 @@ const openRegisterModal = () => {
   />
 </template>
 
-<style scoped>
+<style>
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
+
+  justify-content: flex-end;
+}
+
+.transition-container > h1 {
+  width: calc(100% - 60px);
+}
+
+.hero-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 100px);
+}
+
+.hero-left-layout {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero-right-layout {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.transition-container {
+  height: 400px;
+  width: 100%;
+  background-color: var(--accent-color);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .background-img {
@@ -91,31 +147,40 @@ const openRegisterModal = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/background_2.jpg");
+  background-image: url("../../assets/background_3.jpg");
+  /* filter: brightness(1.2) contrast(0.8); */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   z-index: -1;
-  opacity: 0.5;
-}
-
-.wrapper {
-  flex-direction: row;
-  align-items: center;
-  justify-self: center;
 }
 
 .main-logo {
   width: 700px;
-  height: 700px;
+  height: 300px;
+  object-fit: cover;
   margin: 0 auto;
-  display: block;
+
+  border-radius: 50px;
 }
 
-.button-container {
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  padding: 20px;
-  border-radius: 10px;
+@media screen and (max-width: 900px) {
+  .main-logo {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: calc(100vh - 400px);
+  }
+  .hero-layout {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .hero-left-layout {
+    width: calc(100% - 100px);
+  }
+
+  .hero-right-layout {
+    width: calc(100% - 100px);
+  }
 }
 </style>

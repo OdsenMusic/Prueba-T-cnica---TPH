@@ -1,4 +1,4 @@
-const apiBaseUrl = "https://reqres.in";
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export async function post(apiUrl, token, data) {
   const headers = {
@@ -13,12 +13,10 @@ export async function post(apiUrl, token, data) {
     const response = await fetch(`${apiBaseUrl}${apiUrl}`, {
       method: "POST",
       headers: headers,
-      body: JSON.stringify(data), // Envía los datos directamente
+      body: JSON.stringify(data),
     });
 
     const responseData = await response.json();
-
-    console.log(responseData);
 
     return {
       data: responseData,

@@ -143,7 +143,7 @@ table {
   --disabled-color: rgb(154, 154, 154);
   --focus-border-color: red;
   --hover-background-color: white;
-  --hover-text-color: black;
+  --text-color-1: black;
   --hover-border-color: black;
   --box-shadow-color: rgba(0, 0, 0, 0.4);
 
@@ -220,6 +220,46 @@ label {
   border: 1px solid transparent;
 }
 
+.horizontal-line {
+  width: 90%;
+  height: 1px;
+  background-color: black;
+  margin: 20px 0;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 100%;
+  background-color: black;
+  margin: 20px 0;
+}
+
+p {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+.floating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 30px 30px 0 0;
+  backdrop-filter: blur(10px);
+}
+
 .button_disabled {
   font-family: inherit;
   font-size: 1rem;
@@ -235,14 +275,7 @@ label {
   border-radius: 50px;
   transition: all 0.2s;
   border: 1px solid transparent;
-}
-
-.button_disabled:hover {
-  background-color: rgb(154, 154, 154);
-  color: black;
-  border: 1px solid black;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-  border: 1px solid transparent;
+  opacity: 0.5;
 }
 
 .button_1:hover {
@@ -250,6 +283,15 @@ label {
   color: black;
   border: 1px solid black;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+}
+
+.button_disabled:hover {
+  background-color: rgb(154, 154, 154);
+  color: black;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+  cursor: default;
+  border: 1px solid transparent;
 }
 
 div {
