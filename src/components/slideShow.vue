@@ -9,42 +9,44 @@ import Image6 from "../assets/slideshow/slideshow_img6.webp";
 import Image7 from "../assets/slideshow/slideshow_img7.webp";
 import Image8 from "../assets/slideshow/slideshow_img8.webp";
 
-const images = [Image1, Image2, Image3, Image4];
-const images2 = [Image5, Image6, Image7, Image8];
-const leftWrapper = ref(null);
-const rightWrapper = ref(null);
+const imageSet1 = [Image1, Image2, Image3, Image4];
+const imageSet2 = [Image5, Image6, Image7, Image8];
+const topWrapper = ref(null);
+const bottomWrapper = ref(null);
 const imagePositionsTop = ref([]);
 const imagePositionsBottom = ref([]);
-const intervalLeft = ref(null);
-const intervalRight = ref(null);
+const intervalTop = ref(null);
+const intervalBottom = ref(null);
 const wrapperWidth = ref(0);
 const imageWidth = 600;
 const moveSpeed = 1;
 const bottomSpeedOffset = 0.5;
 
 function initPositions() {
-  imagePositionsTop.value = images.map((_, i) => i * imageWidth - imageWidth);
-  imagePositionsBottom.value = images.map((_, i) => i * imageWidth);
+  imagePositionsTop.value = imageSet1.map(
+    (_, i) => i * imageWidth - imageWidth
+  );
+  imagePositionsBottom.value = imageSet1.map((_, i) => i * imageWidth);
 }
 
-function startSlideshowLeft() {
-  intervalLeft.value = setInterval(() => {
+function startSlideshowTop() {
+  intervalTop.value = setInterval(() => {
     imagePositionsTop.value = imagePositionsTop.value.map((pos) => {
       let newPos = pos - moveSpeed;
-      if (newPos <= -wrapperWidth.value) {
-        newPos += imageWidth * images.length;
+      if (newPos <= -wrapperWidth.value + 200) {
+        newPos += imageWidth * imageSet1.length;
       }
       return newPos;
     });
   }, 16);
 }
 
-function startSlideshowRight() {
-  intervalRight.value = setInterval(() => {
+function startSlideshowBottom() {
+  intervalBottom.value = setInterval(() => {
     imagePositionsBottom.value = imagePositionsBottom.value.map((pos) => {
       let newPos = pos + moveSpeed - bottomSpeedOffset;
-      if (newPos >= wrapperWidth.value) {
-        newPos -= imageWidth * images.length;
+      if (newPos >= wrapperWidth.value - 200) {
+        newPos -= imageWidth * imageSet1.length;
       }
       return newPos;
     });
@@ -52,11 +54,11 @@ function startSlideshowRight() {
 }
 
 function stopSlideshowLeft() {
-  clearInterval(intervalLeft.value);
+  clearInterval(intervalTop.value);
 }
 
 function stopSlideshowRight() {
-  clearInterval(intervalRight.value);
+  clearInterval(intervalBottom.value);
 }
 
 function stopSlideshows() {
@@ -65,12 +67,12 @@ function stopSlideshows() {
 }
 
 function startSlideshows() {
-  startSlideshowLeft();
-  startSlideshowRight();
+  startSlideshowTop();
+  startSlideshowBottom();
 }
 
 onMounted(() => {
-  wrapperWidth.value = rightWrapper.value.offsetWidth;
+  wrapperWidth.value = bottomWrapper.value.offsetWidth;
   initPositions();
   startSlideshows();
 });
@@ -103,7 +105,7 @@ onUnmounted(() => {
         </div>
       </div>
       <div
-        ref="leftWrapper"
+        ref="topWrapper"
         @click="stopSlideshows"
         class="slideshow-wrapper-left"
       >
@@ -113,11 +115,11 @@ onUnmounted(() => {
           class="slide"
           :style="{ transform: 'translateX(' + pos + 'px)' }"
         >
-          <img aria-label :src="images[index]" alt="Slide Image" />
+          <img :src="imageSet1[index]" alt="Slider Image" />
         </div>
       </div>
       <div
-        ref="rightWrapper"
+        ref="bottomWrapper"
         @click="startSlideshows"
         class="slideshow-wrapper-right"
       >
@@ -127,7 +129,7 @@ onUnmounted(() => {
           class="slide"
           :style="{ transform: 'translateX(' + pos + 'px)' }"
         >
-          <img :src="images2[index]" alt="Slide Image" />
+          <img :src="imageSet2[index]" alt="Slide Image" />
         </div>
       </div>
     </div>
@@ -153,7 +155,6 @@ onUnmounted(() => {
   margin: 10px;
   border-radius: 50px;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
-  z-index: 440;
   background-color: var(--accent-color);
   display: flex;
   flex-direction: column;

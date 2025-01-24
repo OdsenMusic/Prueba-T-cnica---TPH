@@ -52,7 +52,7 @@ onMounted(() => {
     <PageContainer id="inicio" style="justify-content: flex-end">
       <div class="hero-layout">
         <div style="" class="hero-left-layout">
-          <img class="main-logo" :src="Logo" alt="Construct.ICO" />
+          <img class="main-logo" :src="Logo" alt="Logo de Construct.ICO" />
           <LeftContainer />
         </div>
         <div class="hero-right-layout">
@@ -62,9 +62,7 @@ onMounted(() => {
       <div class="background-img"></div>
     </PageContainer>
     <!-- TRANSITION SECTION -->
-    <div id="info" class="transition-container">
-      <h1>Calidad y 20 años de garantía</h1>
-    </div>
+    <div id="info" class="transition-container"></div>
     <!-- SLIDESHOW SECTION -->
     <PageContainer id="trabajos">
       <SlideShow />
@@ -129,7 +127,7 @@ onMounted(() => {
 }
 
 .transition-container {
-  height: 400px;
+  height: 100px;
   width: 100%;
   background-color: var(--accent-color);
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
@@ -153,13 +151,12 @@ onMounted(() => {
   height: 300px;
   object-fit: cover;
   margin: 0 auto;
-  border-radius: 50px;
 }
 
 @media screen and (max-width: 900px) {
   .main-logo {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: calc(100vh - 400px);
   }
   .hero-layout {

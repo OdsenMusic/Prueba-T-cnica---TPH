@@ -57,3 +57,19 @@ Sé que aún hay margen de mejora, pero mi objetivo ha sido mantener un orden qu
 
 **Validaciones y Formularios**
 Nunca había utilizado VeeValidate, pero tras leer su documentación noté similitudes con React Hook Form, con la que sí estoy familiarizado. Por ello, decidí implementarlo en todos los formularios para manejar las validaciones de manera sencilla y eficiente.
+
+## Mejoras pendientes
+
+Quedan varias mejoras pendientes que podrían implementarse en versiones futuras, por ejemplo:
+
+Estructura de CSS:
+Crear más clases globales y utilizar variables CSS para un estilo más consistente y fácil de mantener.
+
+Componetización de campos de formulario:
+Incluir tanto el input como el ErrorMessage en un solo componente, logrando un código más limpio y fácil de mantener.
+
+Gestión de estado:
+Utilizar variables globales para el estado isLogged, de modo que sea accesible y manejable de forma centralizada.
+
+Contenido de la landing:
+Añadir más elementos y secciones a la pantalla inicial para que resulte más atractiva y menos vacía, ofreciendo más información o funcionalidades desde el primer vistazo.

@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import Logo from "../assets/logo.png";
 import { clearStorage, getStorageItem } from "../utils/localStorage";
 
 const { openLoginModal, openRegisterModal } = defineProps([
@@ -32,7 +33,7 @@ const logout = () => {
 
 <template>
   <nav class="navigation-bar">
-    <img class="logo" src="../assets/logo_2.png" alt="logo" />
+    <img class="logo" :src="Logo" alt="Logo de Construct.ICO" />
     <div class="navigation-bar-links">
       <a
         class="center-links"
@@ -44,7 +45,7 @@ const logout = () => {
         class="center-links"
         href="#info"
         @click.prevent="scrollToSection('info')"
-        >Info</a
+        >Información</a
       >
       <a
         class="center-links"
