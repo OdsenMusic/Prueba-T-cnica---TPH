@@ -1,8 +1,6 @@
 <script setup>
-import { nextTick, onMounted, ref, watch } from "vue";
-import image1 from "../../../assets/background_1.jpg";
-import logo from "../../../assets/logo_2.png";
-import { animate, delay } from "motion";
+import { nextTick, onMounted, ref } from "vue";
+import { animate } from "motion";
 
 onMounted(async () => {
   await nextTick();
@@ -64,7 +62,6 @@ const selectedContent = ref(0);
         repellendus numquam. Cupiditate labore est id at, ex voluptates
         assumenda reiciendis.
       </p>
-      <img class="example-img" :src="logo" />
     </div>
     <div v-if="selectedContent === 2">
       <h1 style="color: black">Materiales</h1>
@@ -77,7 +74,6 @@ const selectedContent = ref(0);
         repellendus numquam. Cupiditate labore est id at, ex voluptates
         assumenda reiciendis.
       </p>
-      <img class="example-img" :src="image" />
     </div>
     <button
       style="position: absolute; bottom: 30px; box-shadow: 0 0 30px white"

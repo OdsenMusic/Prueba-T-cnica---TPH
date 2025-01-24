@@ -1,9 +1,7 @@
 <script setup>
-import { defineProps, reactive, ref } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import { Form, Field, ErrorMessage, configure, defineRule } from "vee-validate";
-import { email as EmailVerification, required } from "@vee-validate/rules";
-import { localize } from "@vee-validate/i18n";
+import { Form, Field, ErrorMessage } from "vee-validate";
 
 import { login } from "../api/authServices";
 import ModalContainer from "./uiComponents/modalContainer.vue";
@@ -19,19 +17,6 @@ const serverMessage = ref(null);
 const form = reactive({
   email: "",
   password: "",
-});
-
-configure({
-  validateOnInput: true,
-  bails: false,
-  generateMessage: localize({
-    en: {
-      messages: {
-        required: "Este campo es obligatorio",
-        email: "Por favor, introduce un email válido",
-      },
-    },
-  }),
 });
 
 const { isModalVisible, closeModal } = defineProps([
@@ -143,8 +128,9 @@ const handleSubmit = async () => {
 }
 
 .create-account-button {
+  color: var(--text-color-1);
   font-size: 0.8rem;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 10px;
 }
 

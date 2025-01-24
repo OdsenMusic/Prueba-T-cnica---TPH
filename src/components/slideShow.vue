@@ -1,13 +1,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import Image1 from "../assets/slideshow/slideshow_img1.jpg";
-import Image2 from "../assets/slideshow/slideshow_img2.jpg";
-import Image3 from "../assets/slideshow/slideshow_img3.jpg";
-import Image4 from "../assets/slideshow/slideshow_img4.jpg";
-import Image5 from "../assets/slideshow/slideshow_img5.jpg";
-import Image6 from "../assets/slideshow/slideshow_img6.jpg";
-import Image7 from "../assets/slideshow/slideshow_img7.jpg";
-import Image8 from "../assets/slideshow/slideshow_img8.jpg";
+import Image1 from "../assets/slideshow/slideshow_img1.webp";
+import Image2 from "../assets/slideshow/slideshow_img2.webp";
+import Image3 from "../assets/slideshow/slideshow_img3.webp";
+import Image4 from "../assets/slideshow/slideshow_img4.webp";
+import Image5 from "../assets/slideshow/slideshow_img5.webp";
+import Image6 from "../assets/slideshow/slideshow_img6.webp";
+import Image7 from "../assets/slideshow/slideshow_img7.webp";
+import Image8 from "../assets/slideshow/slideshow_img8.webp";
 
 const images = [Image1, Image2, Image3, Image4];
 const images2 = [Image5, Image6, Image7, Image8];
@@ -113,7 +113,7 @@ onUnmounted(() => {
           class="slide"
           :style="{ transform: 'translateX(' + pos + 'px)' }"
         >
-          <img :src="images[index]" alt="Slide Image" />
+          <img aria-label :src="images[index]" alt="Slide Image" />
         </div>
       </div>
       <div

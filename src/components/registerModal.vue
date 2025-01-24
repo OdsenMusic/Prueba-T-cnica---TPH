@@ -1,13 +1,9 @@
 <script setup>
-import { defineProps, ref } from "vue";
-import { Form, Field, ErrorMessage, configure, defineRule } from "vee-validate";
-import { email as EmailVerification, min, required } from "@vee-validate/rules";
-import { localize } from "@vee-validate/i18n";
+import { reactive, ref } from "vue";
+import { Form, Field, ErrorMessage } from "vee-validate";
 import { useRouter } from "vue-router";
 
 import AccountPlusIcon from "vue-material-design-icons/AccountPlus.vue";
-import AlertCircleIcon from "vue-material-design-icons/AlertCircle.vue";
-import CheckCircleIcon from "vue-material-design-icons/CheckCircle.vue";
 
 import ModalContainer from "./uiComponents/modalContainer.vue";
 import { register } from "../api/authServices";
@@ -25,7 +21,7 @@ const { isModalVisible, closeModal } = defineProps([
 
 const serverMessage = ref(null);
 const isLoading = ref(false);
-const form = ref({
+const form = reactive({
   email: "",
   password: "",
   passwordConfirm: "",
@@ -33,12 +29,11 @@ const form = ref({
 
 //FUNCIONES
 
-const handleDisableButton = () => {
-  return (
-    form.email === "" ||
-    form.password === "" ||
-    form.password !== form.passwordConfirm
-  );
+const isButtonDisabled = () => {
+  const { email, password, passwordConfirm } = form;
+  const areFieldsEmpty = !email || !password;
+  const arePasswordsUnmatched = password !== passwordConfirm;
+  return areFieldsEmpty || arePasswordsUnmatched;
 };
 
 const handleSubmit = async () => {
@@ -117,8 +112,8 @@ const handleSubmit = async () => {
       <button
         class="button_1"
         type="submit"
-        :disabled="handleDisableButton()"
-        :class="{ button_disabled: handleDisableButton() }"
+        :disabled="isButtonDisabled()"
+        :class="{ button_disabled: isButtonDisabled() }"
       >
         {{ isLoading ? "Cargando..." : "Registrar" }}
       </button>
@@ -134,7 +129,6 @@ const handleSubmit = async () => {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 30px;
 }
 
 .create-account-button {

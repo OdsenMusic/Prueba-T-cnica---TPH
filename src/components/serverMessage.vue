@@ -1,7 +1,6 @@
 <script setup>
 import AlertCircleIcon from "vue-material-design-icons/AlertCircle.vue";
 import CheckCircleIcon from "vue-material-design-icons/CheckCircle.vue";
-import { defineProps } from "vue";
 
 const props = defineProps({
   serverMessage: {

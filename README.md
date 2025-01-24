@@ -40,7 +40,6 @@ Sigue estos pasos para levantar la aplicación en tu entorno local:
 ## Decisiones técnicas
 
 **Estilos (CSS)**
-Thought about uso de CSS clásico y Vue durante 6 segundos
 He decidido utilizar CSS clásico para el estilado de los componentes. No tengo experiencia previa con Vue ni con Bootstrap (aunque sí he trabajado con React y Material Design). Dado el tiempo limitado (cinco días mientras trabajo 40 horas semanales), preferí no sumergirme en aprender ambas tecnologías simultáneamente, asegurándome así de poder terminar a tiempo con la calidad requerida. Sin embargo, si el plazo fuera más extenso, sin duda valdría la pena aprender y usar Bootstrap para agilizar el estilado de los componentes a mediano y largo plazo.
 
 **Uso de Vue**

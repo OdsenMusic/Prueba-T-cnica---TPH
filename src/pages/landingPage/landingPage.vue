@@ -2,14 +2,12 @@
 import NavigationBar from "../../components/navigationBar.vue";
 import PageContainer from "../../components/uiComponents/pageContainer.vue";
 import Footer from "../../components/footer.vue";
-import BackgroundImage from "../../assets/background_1.jpg";
+import Logo from "../../assets/logo_text.png";
 import LoginModal from "../../components/loginModal.vue";
 import RegisterModal from "../../components/registerModal.vue";
 import SlideShow from "../../components/slideShow.vue";
-import rightContainer from "./components/rightContainer.vue";
 import { onMounted, ref } from "vue";
 import RightContainer from "./components/rightContainer.vue";
-import FloatingContainerFlat from "../../components/uiComponents/floatingContainerFlat.vue";
 import LeftContainer from "./components/leftContainer.vue";
 import { useRoute } from "vue-router";
 
@@ -54,11 +52,7 @@ onMounted(() => {
     <PageContainer id="inicio" style="justify-content: flex-end">
       <div class="hero-layout">
         <div style="" class="hero-left-layout">
-          <img
-            class="main-logo"
-            src="../../assets/logo_2_text.png"
-            alt="Construct.ICO"
-          />
+          <img class="main-logo" :src="Logo" alt="Construct.ICO" />
           <LeftContainer />
         </div>
         <div class="hero-right-layout">
@@ -69,7 +63,7 @@ onMounted(() => {
     </PageContainer>
     <!-- TRANSITION SECTION -->
     <div id="info" class="transition-container">
-      <h1>CALIDAD Y 20 AÑOS DE GARANTÍA</h1>
+      <h1>Calidad y 20 años de garantía</h1>
     </div>
     <!-- SLIDESHOW SECTION -->
     <PageContainer id="trabajos">
@@ -101,12 +95,12 @@ onMounted(() => {
   width: 100%;
   position: relative;
   overflow: hidden;
-
   justify-content: flex-end;
 }
 
 .transition-container > h1 {
   width: calc(100% - 60px);
+  text-align: center;
 }
 
 .hero-layout {
@@ -147,8 +141,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/background_3.jpg");
-  /* filter: brightness(1.2) contrast(0.8); */
+  background-image: url("../../assets/background.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -160,7 +153,6 @@ onMounted(() => {
   height: 300px;
   object-fit: cover;
   margin: 0 auto;
-
   border-radius: 50px;
 }
 

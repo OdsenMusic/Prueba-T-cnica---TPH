@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps, defineEmits, onMounted, watch } from "vue";
 import CloseIcon from "vue-material-design-icons/Close.vue";
 import { animate } from "motion";
 
@@ -68,8 +67,8 @@ const onLeave = () => {
 
 .modal-container {
   background: white;
-  padding: 30px;
-  border-radius: 5px;
+  padding: 25px;
+  border-radius: 30px;
   position: relative;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
