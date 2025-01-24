@@ -56,7 +56,7 @@ onMounted(() => {
           <LeftContainer />
         </div>
         <div class="hero-right-layout">
-          <RightContainer />
+          <RightContainer :openRegisterModal="openRegisterModal" />
         </div>
       </div>
       <div class="background-img"></div>
@@ -157,6 +157,7 @@ onMounted(() => {
   .main-logo {
     width: 100%;
     margin-top: 150px;
+    scale: 1.4;
     margin-bottom: calc(100vh - 400px);
   }
   .hero-layout {
