@@ -16,6 +16,7 @@
   align-items: center;
   height: 100vh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 900px) {
