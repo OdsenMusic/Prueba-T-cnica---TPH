@@ -2,7 +2,7 @@
 
 Este repositorio contiene una aplicación web desarrollada tipo landing page con login y registro hecha con **Vue**, que hace uso de **VeeValidate** para validaciones en los formularios y de **CSS clásico** para los estilos.
 
-## Preview de la Aplicación
+## Preview de la aplicación
 
 Aquí puedes ver un adelanto en producción de la pagina web.
 
@@ -10,7 +10,7 @@ https://prueba-tecnica-tph.vercel.app/
 
 ---
 
-## Cómo Ejecutar en Local
+## Cómo ejecutar en local
 
 Sigue estos pasos para levantar la aplicación en tu entorno local:
 
@@ -47,7 +47,7 @@ Este es mi primer proyecto con Vue y, al igual que ocurre en React, sé que exis
 
 Sin embargo, por falta de tiempo, aún no he podido explorar en profundidad todo lo que Vue ofrece. ¡Debo decir que me ha gustado más que React en muchos aspectos!
 
-**Arquitectura y Sistema de Archivos**
+**Arquitectura y sistema de archivos**
 He organizado la aplicación con una estructura razonable y mantenible:
 
 /components: Contiene componentes de uso general.
@@ -55,7 +55,7 @@ He organizado la aplicación con una estructura razonable y mantenible:
 Dentro de cada página o componente específico, he creado una carpeta components/ para los subcomponentes que se utilizan únicamente en esa sección.
 Sé que aún hay margen de mejora, pero mi objetivo ha sido mantener un orden que facilite la escalabilidad en el futuro.
 
-**Validaciones y Formularios**
+**Validaciones y formularios**
 Nunca había utilizado VeeValidate, pero tras leer su documentación noté similitudes con React Hook Form, con la que sí estoy familiarizado. Por ello, decidí implementarlo en todos los formularios para manejar las validaciones de manera sencilla y eficiente.
 
 ## Mejoras pendientes
